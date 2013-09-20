@@ -31,7 +31,9 @@ $(document).ready(function(){
         before = new Date();
         firstrun = 0;
       }, delay);
-
+      if(firstrun){
+        started_at = new Date();
+      }
       button.removeClass("btn-success");
       button.removeClass("btn-info");
       button.addClass("btn-danger");
@@ -56,6 +58,7 @@ $(document).ready(function(){
     clearInterval(interval);
     running = 0;
     seconds = 0;
+    firstrun = 1
     $("#timer").html("00:00:00");
     button.addClass("btn-success");
     button.addClass("btn-info");
