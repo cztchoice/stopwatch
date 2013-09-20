@@ -11,6 +11,7 @@ $(document).ready(function(){
   var now = new Date();
   var button = $("#button");
   var since = $("#since");
+  var reset = $("#reset");
   var running = 0; // 1, its running, 0 it's not
   var interval = null;
   var delay = 1000;
@@ -50,5 +51,17 @@ $(document).ready(function(){
       }
       running = 0;
     }
+  });
+  reset.click(function(){
+    clearInterval(interval);
+    running = 0;
+    seconds = 0;
+    $("#timer").html("00:00:00");
+    button.addClass("btn-success");
+    button.addClass("btn-info");
+    button.removeClass("btn-danger");
+    button.html("Startwatch!");
+    //since.html("<i><b>since: </b> " + time.clearTime().toString("ddd MMM d, ") + time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds() + "</i>");
+    since.html("");
   });
 });
