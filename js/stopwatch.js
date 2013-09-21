@@ -5,11 +5,11 @@ $(document).ready(function(){
 		show_buttons: true
 	});
 
-  var seconds = 0;
-  var milliseconds = 0;
+  //var seconds = 0;
+  //var milliseconds = 0;
   var a = 0;
-  var started_at = new Date();
-  var now = new Date();
+  var started_at = new moment();
+  var now = new moment();
   var button = $("#button");
   var since = $("#since");
   var reset = $("#reset");
@@ -23,20 +23,21 @@ $(document).ready(function(){
 
   button.click(function(){
     if (!running){
-      var before = new Date();
+      var before = new moment();
       interval = setInterval(function(){
-        now = new Date();
-        var elapsedTime = (now.getTime() - before.getTime());
+        now = new moment();
+        //var elapsedTime = (now.getTime() - before.getTime());
+        var elapsedTime = now.diff(before);
         count_time += elapsedTime;
 
         timer_string = moment(count_time).utc().format("HH:mm:ss.S")
 
         $("#timer").html(timer_string);
-        before = new Date();
+        before = new moment();
         firstrun = 0;
       }, delay);
       if(firstrun){
-        started_at = new Date();
+        started_at = new moment();
       }
       button.removeClass("btn-success");
       button.removeClass("btn-info");
@@ -61,7 +62,7 @@ $(document).ready(function(){
   reset.click(function(){
     clearInterval(interval);
     running = 0;
-    seconds = 0;
+    count_time = 0;
     firstrun = 1
     $("#timer").html(default_timer_string);
     button.addClass("btn-success");
