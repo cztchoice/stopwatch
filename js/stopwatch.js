@@ -66,7 +66,7 @@ $(document).ready(function(){
     firstrun = 1
     $("#timer").html(default_timer_string);
     button.addClass("btn-success");
-    button.addClass("btn-info");
+    //button.addClass("btn-info");
     button.removeClass("btn-danger");
     button.html("Startwatch!");
     //since.html("<i><b>since: </b> " + time.clearTime().toString("ddd MMM d, ") + time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds() + "</i>");
