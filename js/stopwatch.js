@@ -6,6 +6,7 @@ $(document).ready(function(){
 	});
 
   var seconds = 0;
+  var milliseconds = 0;
   var a = 0;
   var started_at = new Date();
   var now = new Date();
@@ -14,8 +15,11 @@ $(document).ready(function(){
   var reset = $("#reset");
   var running = 0; // 1, its running, 0 it's not
   var interval = null;
-  var delay = 1000;
+  var delay = 100;
   var firstrun = 1;
+  var count_time = 0;
+  var timer_string = null;
+  var default_timer_string = "00:00:00.0";
 
   button.click(function(){
     if (!running){
@@ -23,11 +27,11 @@ $(document).ready(function(){
       interval = setInterval(function(){
         now = new Date();
         var elapsedTime = (now.getTime() - before.getTime());
-        if (elapsedTime > delay)
-          seconds += Math.floor(elapsedTime/delay);
-        else
-          seconds++;
-        $("#timer").html(now.clearTime().addSeconds(seconds).toString("HH:mm:ss"));
+        count_time += elapsedTime;
+
+        timer_string = moment(count_time).utc().format("HH:mm:ss.S")
+
+        $("#timer").html(timer_string);
         before = new Date();
         firstrun = 0;
       }, delay);
@@ -59,7 +63,7 @@ $(document).ready(function(){
     running = 0;
     seconds = 0;
     firstrun = 1
-    $("#timer").html("00:00:00");
+    $("#timer").html(default_timer_string);
     button.addClass("btn-success");
     button.addClass("btn-info");
     button.removeClass("btn-danger");
