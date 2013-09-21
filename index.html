@@ -3,13 +3,11 @@
   <head>
     <title>SSS学习法</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/bootstrap.css" type="text/css">
-    <link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css">
-    <script type="text/javascript" src="js/jquery.js"></script>
+    <link rel="stylesheet" href="http://cdn.staticfile.org/twitter-bootstrap/3.0.0/css/bootstrap.css" type="text/css">
+    <!--<link rel="stylesheet" href="css/bootstrap-responsive.css" type="text/css">-->
+    <script type="text/javascript" src="http://cdn.staticfile.org/jquery/2.0.3/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.editinplace.js"></script>
-    <!--><script type="text/javascript" src="js/date.js"></script><-->
-    <script type="text/javascript" src="js/moment.min.js"></script>
-    <script type="text/javascript" src="js/sprintf.min.js"></script>
+    <script type="text/javascript" src="http://cdn.staticfile.org/moment.js/2.1.0/moment.min.js"></script>
     <script type="text/javascript" src="js/stopwatch.js"></script>
   </head>
   <body>
@@ -24,7 +22,9 @@
           border: 1px dashed #eeeeec; font-family: monospace; font-size: 100px;">00:00:00.0</div>
         <button class="btn btn-large btn-success" type="button" id="button" width="126">Startwatch!</button>
         <button class="btn btn-large btn-success" type="Reset" id="reset" width="126">Reset</button>
-        <div id="since" style="color: #969696; margin-top: 30px;">&nbsp;</div>
+        <div id="since" style="color: #969696; margin-top: 30px;">
+          <small><i>press startwatch to start count!</i></small>
+        </div>
       </div>
     </div>
     <div class="tips" style="margin-top: 50px; margin-left: 35%; font-size: 16px;">

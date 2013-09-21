@@ -70,6 +70,6 @@ $(document).ready(function(){
     button.removeClass("btn-danger");
     button.html("Startwatch!");
     //since.html("<i><b>since: </b> " + time.clearTime().toString("ddd MMM d, ") + time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds() + "</i>");
-    since.html("");
+    since.html("<small><i>press startwatch to start count!</i></small>");
   });
 });
